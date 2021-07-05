@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/trodb
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: cjy123456
+  flyway:
+    enabled: true
+    encoding: UTF-8
+    sql-migration-prefix: V
+    sql-migration-separator: __
+    sql-migration-suffixes: .sql
+    validate-on-migrate: false
+    clean-disabled: true
+    table: 't_flyway_history'
+    baseline-on-migrate: true
+    baseline-version: 1
