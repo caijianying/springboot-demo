@@ -84,6 +84,11 @@
             <scope>test</scope>
         </dependency>
 
+        <!--没有这个 运行完会立即终止-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
