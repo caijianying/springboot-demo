@@ -1,5 +1,5 @@
-create table PERSON
-(
-    ID   int          not null,
-    NAME varchar(100) not null
-);
+CREATE TABLE `PERSON` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(100) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
