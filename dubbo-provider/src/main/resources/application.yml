@@ -1,0 +1,23 @@
+server:
+  port: 81
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/trodb
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: cjy123456
+dubbo:
+  application:
+    name: dubbo-provider
+    registries:
+      reg1:
+        address: zookeeper://121.43.37.52:2181
+      reg2:
+        address: zookeeper://localhost:2181
+  protocol:
+    name: dubbo
+    port: 20880
+  monitor:
+    protocol: registry
+  scan:
+    base-packages: com.example.dubboprovider.service

@@ -9,21 +9,17 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>flyway-demo</artifactId>
+    <artifactId>dubbo-consumer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>flyway-demo</name>
+    <name>dubbo-consumer</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
-        <mysql-jdbc.version>5.1.25</mysql-jdbc.version>
-        <druid.version>1.1.22</druid.version>
-        <mybatis.plus.version>3.4.0</mybatis.plus.version>
-        <mybatis.version>3.5.5</mybatis.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>com.example</groupId>
-            <artifactId>dubbo-api</artifactId>
+            <artifactId>dubbo-provider</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -35,19 +31,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <!--引入flyway-->
-        <!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-core -->
-        <dependency>
-            <groupId>org.flywaydb</groupId>
-            <artifactId>flyway-core</artifactId>
-            <version>5.2.4</version>
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
             <groupId>junit</groupId>
@@ -55,13 +38,10 @@
             <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.8</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <!--dubbo-->
         <dependency>
             <groupId>com.alibaba.boot</groupId>
@@ -75,5 +55,14 @@
             </exclusions>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

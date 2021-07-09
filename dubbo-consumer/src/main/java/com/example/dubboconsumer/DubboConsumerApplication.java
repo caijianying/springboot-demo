@@ -1,4 +1,4 @@
-package com.example.flywaydemo;
+package com.example.dubboconsumer;
 
 import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
@@ -9,10 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @EnableDubbo
 @SpringBootApplication
-public class FlywayDemoApplication {
+public class DubboConsumerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(FlywayDemoApplication.class, args);
+        SpringApplication.run(DubboConsumerApplication.class, args);
     }
 
 }

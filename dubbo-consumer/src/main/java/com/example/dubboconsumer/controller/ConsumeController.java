@@ -1,4 +1,4 @@
-package com.example.flywaydemo.controller;
+package com.example.dubboconsumer.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.example.democommon.entity.Person;
@@ -13,8 +13,8 @@ import java.util.List;
  * @author caijianying
  */
 @RestController
-@RequestMapping("api/person")
-public class PersonController {
+@RequestMapping("api/consume")
+public class ConsumeController {
 
     @Reference
     IPersonService personService;
