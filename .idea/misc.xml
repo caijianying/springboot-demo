@@ -9,6 +9,7 @@
         <option value="$PROJECT_DIR$/demo-common/pom.xml" />
         <option value="$PROJECT_DIR$/dubbo-provider/pom.xml" />
         <option value="$PROJECT_DIR$/dubbo-api/pom.xml" />
+        <option value="$PROJECT_DIR$/boot-parent/pom.xml" />
       </list>
     </option>
   </component>

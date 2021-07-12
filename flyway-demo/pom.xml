@@ -3,9 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.8.RELEASE</version>
+        <groupId>com.example</groupId>
+        <artifactId>boot-parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
@@ -13,18 +13,16 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>flyway-demo</name>
     <description>Demo project for Spring Boot</description>
+
     <properties>
-        <java.version>1.8</java.version>
-        <mysql-jdbc.version>5.1.25</mysql-jdbc.version>
-        <druid.version>1.1.22</druid.version>
-        <mybatis.plus.version>3.4.0</mybatis.plus.version>
-        <mybatis.version>3.5.5</mybatis.version>
+        <dubbo-api.version>0.0.1-SNAPSHOT</dubbo-api.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.example</groupId>
             <artifactId>dubbo-api</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${dubbo-api.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -45,28 +43,24 @@
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
-            <version>5.2.4</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.8</version>
         </dependency>
 
         <!--dubbo-->
         <dependency>
             <groupId>com.alibaba.boot</groupId>
             <artifactId>dubbo-spring-boot-starter</artifactId>
-            <version>0.2.0</version>
             <exclusions>
                 <exclusion>
                     <artifactId>spring</artifactId>

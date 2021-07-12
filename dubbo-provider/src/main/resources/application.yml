@@ -9,11 +9,6 @@ spring:
 dubbo:
   application:
     name: dubbo-provider
-    registries:
-      reg1:
-        address: zookeeper://121.43.37.52:2181
-      reg2:
-        address: zookeeper://localhost:2181
   protocol:
     name: dubbo
     port: 20880
@@ -21,3 +16,5 @@ dubbo:
     protocol: registry
   scan:
     base-packages: com.example.dubboprovider.service
+  registry:
+    address: zookeeper://localhost:2181

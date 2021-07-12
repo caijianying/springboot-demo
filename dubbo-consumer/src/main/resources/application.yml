@@ -3,16 +3,10 @@ server:
 dubbo:
   application:
     name: dubbo-comsumer
-    registries:
-      reg:
-        address: zookeeper://121.43.37.52:2181
-      reg2:
-        address: zookeeper://localhost:2181
-  #  registry:
-#    address: zookeeper://121.43.37.52:2181
-#    protocol: zookeeper
   protocol:
     name: dubbo
     port: 20883
   monitor:
     protocol: registry
+  registry:
+    address: zookeeper://localhost:2181
