@@ -29,6 +29,7 @@
         <boot.version>2.5.2</boot.version>
         <junit.version>4.13.1</junit.version>
         <dubbo.starter.version>0.2.0</dubbo.starter.version>
+        <fastjson.version>1.2.76</fastjson.version>
     </properties>
 
     <dependencyManagement>
@@ -112,7 +113,7 @@
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
-                <version>1.2.76</version>
+                <version>${fastjson.version}</version>
             </dependency>
 
             <!--dubbo-->
