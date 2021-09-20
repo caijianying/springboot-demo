@@ -16,6 +16,7 @@
     <properties>
         <java.version>1.8</java.version>
         <dubbo.api.version>0.0.1-SNAPSHOT</dubbo.api.version>
+        <threadlocla.ttl.version>2.10.2</threadlocla.ttl.version>
     </properties>
     <dependencies>
         <dependency>
@@ -89,6 +90,18 @@
             <groupId>org.openjdk.jol</groupId>
             <artifactId>jol-core</artifactId>
             <version>0.15</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>transmittable-thread-local</artifactId>
+            <version>${threadlocla.ttl.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
