@@ -7,8 +7,11 @@ import org.junit.Test;
 
 @Slf4j
 public class KMPTest {
-    String mainStr = "ABABABABCA";//主串
-    String modeStr = "ABABABCA";//模式串
+    //String mainStr = "ABABABABCA";//主串
+    //String modeStr = "ABABABCA";//模式串
+
+    String mainStr = "BBC ABCDAB ABCDABCDABDE";//主串
+    String modeStr = "ABCDABD";//模式串
 
     @Test
     public void testKMP() {
@@ -16,9 +19,41 @@ public class KMPTest {
         //        log.info(JSON.toJSONString(next));
 
         int[] next = getNextArr(modeStr);
-        //int[] next = getNext2(modeStr);
-        //int[] next = getNext(modeStr);
+        ////int[] next = getNext2(modeStr);
+        ////int[] next = getNext(modeStr);
         log.info(JSON.toJSONString(next));
+
+        final char[] charArr = mainStr.toCharArray();
+        final char[] modeCharArr = modeStr.toCharArray();
+        final int charLen = charArr.length;
+        final int modeCharLen = modeCharArr.length;
+        int match = 0;
+        for (int i = 0; i < charLen - modeCharLen; ) {
+            int offset = 1;
+            for (int j = 0, startIndex = i; j < modeCharLen; j++) {
+                int indexToBeMoved = next[j];
+                log.info("{}与{}比较", modeCharArr[j], charArr[startIndex]);
+                if (charArr[startIndex] == modeCharArr[j]) {
+                    match++;
+                    startIndex++;
+                    if (match == modeCharLen) {
+                        //计算最终串的初始下标
+                        int initIndex = (--startIndex) - (modeCharLen - 1);
+                        log.info("找到下标【" + initIndex + "】，值为【" + charArr[initIndex] + "】");
+                    }
+                } else if (indexToBeMoved == -1) {
+                    startIndex++;
+                    match = 0;
+                    break;
+                } else if (indexToBeMoved >= 0) {
+                    offset = (modeCharLen - indexToBeMoved - 1);
+                    match = 0;
+                    break;
+                }
+            }
+            i += offset;
+        }
+
     }
 
     public static int[] getNextArr(String ps) {
