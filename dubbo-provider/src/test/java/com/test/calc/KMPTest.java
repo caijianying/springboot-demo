@@ -1,4 +1,4 @@
-package com.test;
+package com.test.calc;
 
 import com.alibaba.fastjson.JSON;
 
@@ -12,6 +12,35 @@ public class KMPTest {
 
     String mainStr = "BBC ABCDAB ABCDABCDABDE";//主串
     String modeStr = "ABCDABD";//模式串
+
+    @org.junit.jupiter.api.Test
+    public void forceTest() {
+        char[] charArr = mainStr.toCharArray();
+        char[] tmpArr = modeStr.toCharArray();
+        int indexI = 0;
+        int indexJ = 0;
+
+        int start = 0;
+        int matchCount = tmpArr.length;
+        while (start <= charArr.length) {
+            if (charArr[indexI] == tmpArr[indexJ]) {
+                indexI++;
+                indexJ++;
+                matchCount--;
+            } else {
+                log.error("{} and " + "{} not match!", charArr[indexI], tmpArr[indexJ]);
+                start++;
+                indexI = start;
+                indexJ = 0;
+                matchCount = tmpArr.length;
+            }
+
+            if (matchCount == 0) {
+                log.info("匹配成功,起始位置为{}", start);
+                break;
+            }
+        }
+    }
 
     @Test
     public void testKMP() {
