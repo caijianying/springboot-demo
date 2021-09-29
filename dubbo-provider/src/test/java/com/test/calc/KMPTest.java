@@ -7,11 +7,11 @@ import org.junit.Test;
 
 @Slf4j
 public class KMPTest {
-    //String mainStr = "ABABABABCA";//主串
-    //String modeStr = "ABABABCA";//模式串
+    String mainStr = "ABABABABCA";//主串
+    String modeStr = "ABABABCA";//模式串
 
-    String mainStr = "BBC ABCDAB ABCDABCDABDE";//主串
-    String modeStr = "ABCDABD";//模式串
+    //String mainStr = "BBC ABCDAB ABCDABCDABDE";//主串
+    //String modeStr = "ABCDABD";//模式串
 
     @Test
     public void forceTest() {
@@ -24,7 +24,7 @@ public class KMPTest {
         int start = 0;
         int matchCount = tmpArr.length;
         while (start <= charArr.length) {
-            compareCount ++;
+            compareCount++;
             if (charArr[indexI] == tmpArr[indexJ]) {
                 indexI++;
                 indexJ++;
@@ -39,11 +39,10 @@ public class KMPTest {
 
             if (matchCount == 0) {
                 log.info("匹配成功,起始位置为{}", start);
+                log.info("比较次数：{}", compareCount);
                 break;
             }
         }
-
-        log.info("比较次数：{}",compareCount);
     }
 
     @Test
@@ -61,12 +60,12 @@ public class KMPTest {
         final int charLen = charArr.length;
         final int modeCharLen = modeCharArr.length;
         int match = 0;
-        int compareCount=0;
-        for (int i = 0; i < charLen - modeCharLen; ) {
+        int compareCount = 0;
+        for (int i = 0; i < charLen - modeCharLen +1; ) {
             int offset = 1;
             for (int j = 0, startIndex = i; j < modeCharLen; j++) {
                 int indexToBeMoved = next[j];
-                compareCount ++;
+                compareCount++;
                 log.info("{}与{}比较", modeCharArr[j], charArr[startIndex]);
                 if (charArr[startIndex] == modeCharArr[j]) {
                     match++;
@@ -75,6 +74,8 @@ public class KMPTest {
                         //计算最终串的初始下标
                         int initIndex = (--startIndex) - (modeCharLen - 1);
                         log.info("找到下标【" + initIndex + "】，值为【" + charArr[initIndex] + "】");
+                        log.info("比较次数：{}", compareCount);
+                        return;
                     }
                 } else if (indexToBeMoved == -1) {
                     startIndex++;
@@ -83,13 +84,13 @@ public class KMPTest {
                 } else if (indexToBeMoved >= 0) {
                     //log.error("记录下标{}",i+match);
                     offset = (modeCharLen - indexToBeMoved - 1);
+                    offset = offset > (charLen - modeCharLen) ? 1 : offset;
                     match = 0;
                     break;
                 }
             }
             i += offset;
         }
-        log.info("比较次数：{}",compareCount);
     }
 
     public static int[] getNextArr(String ps) {
